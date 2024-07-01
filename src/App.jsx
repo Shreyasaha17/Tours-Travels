@@ -16,6 +16,8 @@ import Signup from './pages/Signup';
 import Aboutus from './pages/Aboutus';
 import Dashboard from './pages/Dashboard';
 import Layout from './Layout/Layout';
+import WithAuth from './auth/withAuth';
+import UnAuth from './auth/unAuth';
 
 function App() {
 
@@ -26,10 +28,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<UnAuth> <Login /></UnAuth>} />
+          <Route path="/signup" element={<UnAuth><Signup /></UnAuth>} />
           <Route path="/aboutus" element={<Aboutus />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<WithAuth><Dashboard /></WithAuth>} />
         </Route>
       </Routes>
     </>
