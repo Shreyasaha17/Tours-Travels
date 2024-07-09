@@ -10,24 +10,26 @@ const Header = () => {
 
   const goTo=(page)=>{
     navigate(page)
+ 
   }
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-    <Container>
-      <Navbar.Brand >React-Bootstrap</Navbar.Brand>
+    <Navbar expand="lg p-0" className="bg-dark">
+    <Container className='bg-transparency  m-0'>
+      <Navbar.Brand className='text-white'>Tour & Travels</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Collapse id="basic-navbar-nav" >
         <Nav  id='navbar-menu'>
                 <Link to="/home">Home &nbsp; </Link>
                 <Link to="/aboutus" >About &nbsp; </Link>
                 <Link to="/login" >Login &nbsp; </Link>
                 <Link to="/signup" > Sign Up &nbsp; </Link>
-                <Link to="/dashboard" > Dashboard &nbsp; </Link>
+                {/* <Link to="/dashboard" > Dashboard &nbsp; </Link>
+                <Link to="/tour" > Tour &nbsp; </Link> */}
           </Nav>
           <Nav  id='navbar-button'>
-          <Button variant="primary" className='header-button'><span onClick={()=>goTo("/login")}>Login</span></Button>
-          <Button variant="primary" className='header-button'><span onClick={()=>goTo("/signup")}>Sign Up</span></Button>
+          <Button variant="outline-light" className='header-button'><span onClick={()=>goTo("/login")}>Login</span></Button>
+          <Button variant="outline-light" className='header-button'><span onClick={()=>goTo("/signup")}>Sign Up</span></Button>
           </Nav>
       </Navbar.Collapse>
     </Container>

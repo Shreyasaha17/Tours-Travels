@@ -1,154 +1,29 @@
-import { useState,useEffect } from "react";
-import storageHandler from "../helper/storageHandler";
 import Header from "../component/Header";
 import AuthHeader from "../component/AuthHeader";
 import { Outlet,useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../reduxstore/authSlice";
+
+
 const Layout = () => {
 
-  const[user,setUser]=useState(null)
-  const navigate=useNavigate()
-
-   useEffect(()=>{
-    const authData=storageHandler.getLocalData()
-    setUser(authData)
-   },[]
-   )
-
-   const logout=()=>{
-    storageHandler.removeLocalData('local-store')
-    setUser(null)
-    navigate('/login')
+ const dispatch=useDispatch()
+ const isLogin=useSelector(state=>state.auth.isLogin)
+ const navigate = useNavigate();
+   
+ 
+ const applogout=()=>{
+    dispatch(logout())
+   navigate('/login')
    }
     return(
       <>
-      {user ? <AuthHeader user={user} logout={logout}/>:<Header/>}
-      <Outlet context={{setUser}}/>
+      {isLogin ? <AuthHeader logout={applogout}/>:<Header/>}
+      <Outlet />
       
       </>
 
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-   
 
   
 }

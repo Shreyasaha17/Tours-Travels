@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
-import storageHandler from "../helper/storageHandler";
+/* eslint-disable react/no-unescaped-entities */
+
+import { Card } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+
 
 const Dashboard = () => {
-  const [email, setEmail] = useState("")
-
-
-    useEffect(() => {
-      const data = storageHandler.getLocalData()
-      setEmail(data?.email ||" ")
-  }, [])
+  const user=useSelector(state=>state.auth.user)
 
   return (
     <>
-        <h1>Dashboard - {email}</h1>
+    <Card style={{ width:'50%', margin: '20px auto', border:'4px solid black' }}>
+    <Card.Body>
+    <Card.Title><h2>User's Details</h2></Card.Title>
+    <Card.Text>Email : {user.email}</Card.Text>
+      </Card.Body>
+    </Card>
     </>
   )
 }

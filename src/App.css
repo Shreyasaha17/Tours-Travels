@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap');
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+ 
   text-align: center;
 }
 
@@ -27,6 +28,25 @@
   margin-bottom: 20px;
 
 }
+.heading{
+  margin-top: 30px;
+  font-family:Bona Nova SC;
+  font-size: 30px;
+  font-weight: bold;
+
+}
+@media (min-width:992px){
+  .navbar-expand-lg{
+    flex-wrap:nowrap;
+    justify-content:center!important;
+    border-radius: 15px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }}
+
+
+.custom-toggler,.navbar-toggler-icon{
+  background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")} ;
 
   .header-button{
     margin: 7px;
@@ -36,17 +56,54 @@
     text-align: center;
     }
   .basic-navbar-nav{
-    width: 74.7%;
+    width: 74.97%;
     }
   #navbar-menu{
-    width:74.7%;
+    width:74.97%;
     text-align: center;
     align-items: center;
     justify-content: center;
   }
   #navbar-button{
-     width: 24.9%;
+     width: 24.99%;
      text-align: center;
+  }
+  #auth-navbar-menu{
+    width:66.64%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+  #auth-navbar-button{
+    width: 33.32%;
+     text-align:right;
+  }
+  .card-body{
+    text-align: left;
+  }
+
+
+  .card-button{
+    background-color: transparent;
+    border-radius: 8px;
+    border: 3px solid white;
+  }
+  .card-images{
+    border-radius: 20px;
+    height:300px;
+    object-fit:cover;
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: row;
+  }
+  .column-card{
+    width: 30%;
+  }
+  .bg-dark {
+    --bs-bg-opacity: 1;
+    background-color: rgb(0, 0, 0) !important;
   }
 @keyframes logo-spin {
   from {

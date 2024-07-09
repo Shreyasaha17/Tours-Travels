@@ -1,14 +1,14 @@
 
 import { Navigate } from "react-router-dom";
-import storageHandler from "../helper/storageHandler";
+import { useSelector } from "react-redux";
 
 // eslint-disable-next-line react/prop-types
 const UnAuth = ({ children }) => {
-    const authData = storageHandler.getLocalData();
-    if (authData?.email) {
-        return <Navigate to="/dashboard" replace />;
+   const isLogin=useSelector(state=>state.auth.isLogin)
+    if (!isLogin) {
+        return <>{children}</>
     } else {
-        return <>{children}</>;
+        return <Navigate to="/dashboard" replace />;
     }
 }
 

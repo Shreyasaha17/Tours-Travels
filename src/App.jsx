@@ -18,6 +18,7 @@ import Dashboard from './pages/Dashboard';
 import Layout from './Layout/Layout';
 import WithAuth from './auth/withAuth';
 import UnAuth from './auth/unAuth';
+import Tour from './pages/Tourpackages';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/signup" element={<UnAuth><Signup /></UnAuth>} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/dashboard" element={<WithAuth><Dashboard /></WithAuth>} />
+          <Route path="/tour" element={<WithAuth><Tour/></WithAuth>} />
         </Route>
       </Routes>
     </>

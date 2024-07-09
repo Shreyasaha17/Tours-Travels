@@ -4,26 +4,29 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const AuthHeader = ({user,logout}) => {
+const AuthHeader = ({logout}) => {
+  const user = useSelector(state => state.auth.user)
   
   return (
    <>
-   <Navbar expand="lg" className="bg-body-tertiary">
-    <Container>
-      <Navbar.Brand >React-Bootstrap</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+   <Navbar expand="lg" className="bg-dark">
+    <Container className='bg-transparency  m-0 '>
+      <Navbar.Brand className='text-white'>Tour & Travels</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" className='custom-toggler'/>
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav  id='navbar-menu'>
+        <Nav  id='auth-navbar-menu'>
                 <Link to="/home">Home &nbsp; </Link>
                 <Link to="/aboutus" >About &nbsp; </Link>
                 {/* <Link to="/login" >Login &nbsp; </Link>
                 <Link to="/signup" > Sign Up &nbsp; </Link> */}
                 <Link to="/dashboard" > Dashboard &nbsp; </Link>
+                <Link to="/tour" > Tour &nbsp; </Link>
           </Nav>
-          <Nav  id='navbar-button'>
-          <span >{user.email}</span> 
-          <Button variant="primary" onClick={logout}> Logout </Button>
+          <Nav  id='auth-navbar-button'>
+          <span className='text-white mt-1'>{user?.email}</span> 
+          <Button variant="outline-light mx-2" onClick={logout}> Logout </Button>
   
           </Nav>
       </Navbar.Collapse>

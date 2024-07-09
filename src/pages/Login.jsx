@@ -1,18 +1,20 @@
-//import React from 'react'
-
 import { useState } from "react"
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useNavigate,useOutletContext} from "react-router-dom";
-import storageHandler from "../helper/storageHandler";
+import { useNavigate } from "react-router-dom";
+//import storageHandler from "../helper/storageHandler";
+import { login } from "../reduxstore/authSlice";
+import { useDispatch } from "react-redux";
+
+
 
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const navigate=useNavigate()
-  const { setUser } = useOutletContext();
-  
+  const navigate = useNavigate()
+  const dispatch = useDispatch();
+
   const HandleChange = (event) => {
 
     const { id, value } = event.target
@@ -24,17 +26,18 @@ const Login = () => {
       setPassword(value)
     }
   }
- 
+  
+
   const doLogin = (event) => {
     event.preventDefault();
-    console.log('Login Data:', { email, password })
-    storageHandler.setLocalData({ email });
-    setUser({email})
-     navigate(`/dashboard`);
-  
+    
+    // storageHandler.setLocalData({ email });
+    let data= dispatch(login({ email, password }));
+    console.log("Login Data :",data);
+        navigate(`/dashboard`);
   }
 
-  
+
 
 
   return (
@@ -50,7 +53,7 @@ const Login = () => {
           <Form.Group className="mb-3" controlId="password">
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" placeholder="Enter Password"
-             value={password} onChange={HandleChange} />
+              value={password} onChange={HandleChange} />
           </Form.Group>
           <Button variant="primary" type="submit">Submit</Button>
         </Form>
@@ -61,7 +64,4 @@ const Login = () => {
 }
 
 export default Login
-
-
-
 
