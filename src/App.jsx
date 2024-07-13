@@ -19,6 +19,7 @@ import Layout from './Layout/Layout';
 import WithAuth from './auth/withAuth';
 import UnAuth from './auth/unAuth';
 import Tour from './pages/Tourpackages';
+import TourDetails from './pages/TourDetails';
 
 function App() {
 
@@ -34,6 +35,8 @@ function App() {
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/dashboard" element={<WithAuth><Dashboard /></WithAuth>} />
           <Route path="/tour" element={<WithAuth><Tour/></WithAuth>} />
+          <Route path="/tourDetails/:tourId" element={<WithAuth><TourDetails/></WithAuth>} />
+          
         </Route>
       </Routes>
     </>
