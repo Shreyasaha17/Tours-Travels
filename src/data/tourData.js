@@ -21,10 +21,7 @@ const tourData = [
     },
     {
         id: 2, title: "Bali", image: "/images/bali.jpg",
-        image1: "https://c0.wallpaperflare.com/preview/557/796/12/pura-ulun-danu-bratan-indonesia.jpg", image2: "https://picstatio.com/large/7e1aa2/coast-sea-landscape-nature.jpg", 
-        image3: "https://c0.wallpaperflare.com/preview/408/841/304/tanah-lot-tanah-lot-temple-entrance-bali.jpg",
-        image4: "https://static.thehoneycombers.com/wp-content/uploads/sites/4/2021/07/Hideout-bali-Beehive-best-villas-hotels-resorts-in-sidemen-east-bali-indonesia-where-to-stay-900x642.jpg",
-        image5: "https://assets.zeezest.com/blogs/PROD_BaliSEO_1643347076064_thumb_1200.jpeg",
+        image1: "/images/kerala1.jpg", image2: "/images/kerala2.jpg", image3: "/images/kerala3.jpg",image4: "/images/kerala4.jpg",image5: "/images/kerala5.jpg",
         description1: "Visit to Bali will give you a gratifying experience and peace.", price: 72000,
         plan: [
             "Arrival in Kochi, explore Fort Kochi, Chinese Fishing Nets, and St. Francis Church.",
@@ -64,8 +61,8 @@ const tourData = [
         id: 4,
         title: "Maldives",
         image: "/images/maldives.jpg",
-        image1: "https://wallpapercave.com/wp/nNffzXY.jpg", 
-        image2: "https://wallpapercave.com/wp/wp5711644.jpg", 
+        image1: "/images/maldives.jpg", 
+        image2: "/images/maldives.jpg",
         image3: "https://preview.redd.it/m7fwb4orp0f11.jpg?width=640&crop=smart&auto=webp&s=e2e1adcca162c80bba33b19d02227fc4f8890b1b",
         image4: "https://s1.picswalls.com/wallpapers/2014/07/28/maldives-wallpaper-hd_121018717_122.jpg",
         image5: "https://e1.pxfuel.com/desktop-wallpaper/413/833/desktop-wallpaper-cool-nature.jpg",
