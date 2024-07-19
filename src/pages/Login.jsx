@@ -42,23 +42,26 @@ const Login = () => {
 
   return (
     <>
-      <h3>Login</h3>
-      <Card body>
+    <div className="login-card">
+    <Card className="text-white"style={{backgroundColor:'transparent',border:'2px solid white'}}>
+        <Card.Body className="p-4 " >
+        <h3 className="pb-3"><strong>Login</strong></h3>
         <Form className='Login-Form' onSubmit={doLogin}>
           <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email"
+            <Form.Label style={{fontWeight:'bold'}}>Email address</Form.Label>
+            <Form.Control type="email" style={{backgroundColor:'transparent',border:'2px solid white'}}
               value={email} onChange={HandleChange} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="password">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Enter Password"
+            <Form.Label style={{fontWeight:'bold'}}>Password</Form.Label>
+            <Form.Control type="password" style={{backgroundColor:'transparent',border:'2px solid white'}}
               value={password} onChange={HandleChange} />
           </Form.Group>
-          <Button variant="primary" type="submit">Submit</Button>
+          <Button variant="light" type="submit"><strong>Submit</strong></Button>
         </Form>
-      </Card>;
-
+        </Card.Body>
+      </Card>
+      </div>
     </>
   )
 }

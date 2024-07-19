@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     user: null,
-    isLogin: false
+    isLogin: false,
+    reservation:null,
 }
 
 export const authSlice = createSlice({
@@ -27,7 +28,13 @@ export const authSlice = createSlice({
             }
 
         },
-
+        addReservation:(state,action)=>{
+            state.reservation=action.payload
+            
+        },
+        cancelReservation:(state)=>{
+        state.reservation=null
+        },
         logout: (state) => {
            state.user = null
             state.isLogin = false
@@ -37,6 +44,8 @@ export const authSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { login, logout, register } = authSlice.actions
+export const { login, logout, register,addReservation,cancelReservation } = authSlice.actions
 
 export default authSlice.reducer//-->add this authslice to store
+
+

@@ -18,9 +18,25 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+/* login form css */
+.form-control{
+  color: white!important;
+}
 .Login-Form{
   text-align: left;
 }
+.login-card{
+    height: 100vh;
+    width: 100%;
+    background-image: url(/images/login-wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+
+  }
 .row{
   flex-direction:column;
 }
@@ -39,9 +55,6 @@
   .navbar-expand-lg{
     flex-wrap:nowrap;
     justify-content:center!important;
-    border-radius: 15px;
-    margin-right: 20px;
-    margin-left: 20px;
   }}
 
 
@@ -53,7 +66,7 @@
   }
   .navbar-brand{
     width:24.99%;
-    text-align: center;
+    text-align: left;
     }
   .basic-navbar-nav{
     width: 74.97%;
@@ -66,7 +79,7 @@
   }
   #navbar-button{
      width: 24.99%;
-     text-align: center;
+     text-align:right;
   }
   #auth-navbar-menu{
     width:66.64%;
@@ -126,4 +139,114 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+/* home page Design*/
+.homepage{
+  height: 100vh;
+  width: 100%;
+  background-image: url(/images/home1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex; /* Ensure the container expands to full height */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  padding-left: 70px;
+  padding-right: 70px;
+}
+.home-heading{
+  color: white;
+  font-family:Bona Nova SC; 
+  
+}
+.home-title{
+  font-size: 50px;
+  font-weight: 400;
+}
+.home-description{
+  font-size: 35px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+@media (max-width: 768px) {
+  .homepage {
+    height: 60vh;
+  }
+  .home-title{
+    font-size: 50px;
+  }
+  .home-description{
+    font-size: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+  
+  }
+}
+@media (max-width: 630px) {
+  .home-title{
+    font-size: 30px;
+  }
+  .home-description{
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage {
+    height: 50vh;
+  }
+  .home-title{
+    font-size: 18px;
+  }
+  .home-description{
+    font-size: 15px;
+  }
+}
+/* footer css */
+
+li{
+  list-style: none;
+}
+.footer-icon{
+  color: yellow;
+  margin-right: 10px;
+}
+.socialmedia-icon{
+  color: yellow;
+  margin:20px;
+}
+
+/* reservation page css */
+.reservation-block{
+  align-items: center;
+  justify-content: center;
+  height: 130vh;
+    width: 100%;
+    background-image: url(/images/reservationwallpaer.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex; 
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.input-box{
+  border: 2px solid black;
+  background-color: transparents;
+}
+
+.tour-booking{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.empty-image{
+  height: 40vh;
+  width: 100%;
+  background-image: url(../public/images/empty.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

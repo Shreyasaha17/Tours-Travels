@@ -30,18 +30,22 @@
 
 import Image from 'react-bootstrap/Image';
 import tourData from '../data/tourData';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Col, Row } from 'react-bootstrap';
 import  '../Custom-css/Tourdetails.css'
 
 const TourDetails = () => {
   const { tourId } = useParams();
+  const navigate=useNavigate()
   const tour = tourData.find(t => t.id === parseInt(tourId));
   
   if (!tour) {
     return <div>Tour not found</div>;
   }
-
+  
+  const HandleReservation = () => {
+    navigate(`/reservationForm/${tour.id}`);
+  };
   return (
     <>
       <Row className='bg-dark lg-12 md-12 sm-12 p-5 m-4 row1' >
@@ -78,7 +82,7 @@ const TourDetails = () => {
          <strong>Day {index + 1}</strong>:{day}
        </li>
         ))}
-         <Button variant="outline-light" className='Book'> Book Now</Button>
+         <Button variant="outline-light" className='Book'onClick={HandleReservation}> Book Now</Button>
         </Row>
       </Row>
     </>
@@ -86,3 +90,6 @@ const TourDetails = () => {
 }
 
 export default TourDetails;
+
+
+

@@ -28,8 +28,8 @@ const Header = () => {
                 <Link to="/tour" > Tour &nbsp; </Link> */}
           </Nav>
           <Nav  id='navbar-button'>
-          <Button variant="outline-light" className='header-button'><span onClick={()=>goTo("/login")}>Login</span></Button>
-          <Button variant="outline-light" className='header-button'><span onClick={()=>goTo("/signup")}>Sign Up</span></Button>
+          <Button variant="outline-light" className='header-button m-1'><span onClick={()=>goTo("/login")}>Login</span></Button>
+          <Button variant="outline-light" className='header-button m-1'><span onClick={()=>goTo("/signup")}>Sign Up</span></Button>
           </Nav>
       </Navbar.Collapse>
     </Container>

@@ -40,7 +40,7 @@ const Signup = () => {
     return (
         <>
             <h3>SignUp</h3>
-            <Card body>
+            <Card body >
                 <Form className='Login-Form' onSubmit={doRegister}>
                     <Form.Group className="mb-3" controlId="firstname">
                         <Form.Label>First Name</Form.Label>
