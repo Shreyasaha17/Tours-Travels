@@ -48,7 +48,7 @@ const ReservationForm = () => {
     // }
     const doReservation = (event) => {
       event.preventDefault();
-      const reservationData = { ...formData, title: tour.title, time: tour.time };
+      const reservationData = { ...formData, title: tour.title, time: tour.time,image:tour.image1};
       const action = addReservation(reservationData);
       console.log('Reservation :', action); // Log the action object
       dispatch(action); // Dispatch the action to Redux
@@ -72,55 +72,55 @@ const ReservationForm = () => {
   return (
    <>
    <div className='reservation-block'>
-    <Card xl={7} lg={9} md={12} sm={12} style={{backgroundColor:'transparent',border:'3px solid black'}}>
-      <Card.Body>
+    <Card xl={7} lg={9} md={12} sm={12} style={{backgroundColor:'rgba(0, 0, 0, 0.6)',border:'3px solid white'}}>
+      <Card.Body className='text-white'>
         <Card.Title style={{textAlign:'center'}}><h3>Reservation Form for {tour.title} tour</h3></Card.Title><br/>
     <Form onSubmit={doReservation}>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="name">
           <Form.Label style={{fontWeight:'bold'}} >First Name</Form.Label>
-          <Form.Control type="text" style={{backgroundColor:'transparent',border:'2px solid black'}} 
+          <Form.Control type="text" style={{backgroundColor:'transparent',border:'2px solid white'}} 
           value={formData.name} onChange={HandleChange}/>
         </Form.Group>
         </Row>
         <Row className="mb-3">
         <Form.Group as={Col} controlId="surname">
           <Form.Label style={{fontWeight:'bold'}}>Last Name</Form.Label>
-          <Form.Control type="text" style={{backgroundColor:'transparent',border:'2px solid black'}}
+          <Form.Control type="text" style={{backgroundColor:'transparent',border:'2px solid white'}}
           value={formData.surname} onChange={HandleChange}/>
         </Form.Group>
       </Row>
-      <Row className="mb-3">
+      {/* <Row className="mb-3">
       <Form.Group className="mb-3" controlId="member">
         <Form.Label style={{fontWeight:'bold'}}>Number of members</Form.Label>
-        <Form.Control style={{backgroundColor:'transparent',border:'2px solid black'}}type='number'
+        <Form.Control style={{backgroundColor:'transparent',border:'2px solid white'}}type='number'
         value={formData.member} onChange={HandleChange}/>
       </Form.Group>
-      </Row>
+      </Row> */}
       <Row className="mb-3">
       <Form.Group className="mb-3" controlId="address">
         <Form.Label style={{fontWeight:'bold'}}>Address</Form.Label>
-        <Form.Control style={{backgroundColor:'transparent',border:'2px solid black'}}
+        <Form.Control style={{backgroundColor:'transparent',border:'2px solid white'}}
         value={formData.address} onChange={HandleChange}/>
       </Form.Group>
       </Row>
       <Row className="mb-3">
         <Form.Group as={Col} controlId="phone">
           <Form.Label style={{fontWeight:'bold'}}>Phone No</Form.Label>
-          <Form.Control type='number'style={{backgroundColor:'transparent',border:'2px solid black'}}
+          <Form.Control type='number'style={{backgroundColor:'transparent',border:'2px solid white'}}
           value={formData.phone} onChange={HandleChange}/>
         </Form.Group>
         </Row>
         <Row className="mb-3">
         <Form.Group as={Col} controlId="pin">
           <Form.Label style={{fontWeight:'bold'}}>Pincode</Form.Label>
-          <Form.Control style={{backgroundColor:'transparent',border:'2px solid black'}}
+          <Form.Control style={{backgroundColor:'transparent',border:'2px solid white'}}
           value={formData.pin} onChange={HandleChange}/>
         </Form.Group>
       </Row>
 
 
-      <Button variant="dark" type="submit">Confirm Booking</Button>
+      <Button variant="danger" type="submit">Confirm Booking</Button>
     </Form>
     </Card.Body>
     </Card>

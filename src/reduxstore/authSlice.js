@@ -1,9 +1,10 @@
+
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
     user: null,
     isLogin: false,
-    reservation:null,
+    reservation:[],
 }
 
 export const authSlice = createSlice({
@@ -29,11 +30,22 @@ export const authSlice = createSlice({
 
         },
         addReservation:(state,action)=>{
-            state.reservation=action.payload
+         //   state.reservation=action.payload
+            state.reservation.push(action.payload);
             
         },
-        cancelReservation:(state)=>{
-        state.reservation=null
+        cancelReservation:(state,action)=>{
+
+    const tourTitle = action.payload;
+
+    if (tourTitle) {
+        // Remove reservation with the matching title
+        state.reservation = state.reservation.filter( reservation => reservation.title !== tourTitle
+        );
+    } else {
+        // Handle case when no title is provided
+        console.warn("No title provided for cancellation");
+    }
         },
         logout: (state) => {
            state.user = null

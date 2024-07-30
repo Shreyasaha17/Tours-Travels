@@ -48,7 +48,7 @@ const TourDetails = () => {
   };
   return (
     <>
-      <Row className='bg-dark lg-12 md-12 sm-12 p-5 m-4 row1' >
+      <Row className='bg-dark lg-12 md-12 sm-12 p-5  row1' >
         <p className='tourdetails-heading'>{tour.description2}</p>
         <p className='tourdetails-duration'>{tour.duration}</p>
         <Col lg={6} md={12} sm={12} className=' gallery-1 ' >

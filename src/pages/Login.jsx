@@ -1,8 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react"
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 //import storageHandler from "../helper/storageHandler";
 import { login } from "../reduxstore/authSlice";
 import { useDispatch } from "react-redux";
@@ -43,21 +44,33 @@ const Login = () => {
   return (
     <>
     <div className="login-card">
-    <Card className="text-white"style={{backgroundColor:'transparent',border:'2px solid white'}}>
-        <Card.Body className="p-4 " >
+    <Card className="text-white" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+        <Card.Body className="p-3 " >
         <h3 className="pb-3"><strong>Login</strong></h3>
         <Form className='Login-Form' onSubmit={doLogin}>
           <Form.Group className="mb-3" controlId="email">
             <Form.Label style={{fontWeight:'bold'}}>Email address</Form.Label>
-            <Form.Control type="email" style={{backgroundColor:'transparent',border:'2px solid white'}}
-              value={email} onChange={HandleChange} />
+            <Form.Control type="email" style={{backgroundColor:'rgba(0, 0, 0, 0.5)',color:'white',border:'2px solid white'}}
+             placeholder="Email" value={email} onChange={HandleChange} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="password">
             <Form.Label style={{fontWeight:'bold'}}>Password</Form.Label>
             <Form.Control type="password" style={{backgroundColor:'transparent',border:'2px solid white'}}
               value={password} onChange={HandleChange} />
           </Form.Group>
-          <Button variant="light" type="submit"><strong>Submit</strong></Button>
+          <Button variant="success" type="submit" ><strong>Submit</strong></Button>
+
+          <div className="mt-3 text-center">
+              <Link to="/forgot-password" className="text-white" style={{ textDecoration: 'none' }}>
+                Forgot Password?
+              </Link>
+            </div>
+            <div className="mt-2 text-center">
+              <span className="text-white">Don't have an account? </span>
+              <Link to="/sign-up" className="text-light" style={{ textDecoration: 'none' }}>
+                Sign Up
+              </Link>
+            </div>
         </Form>
         </Card.Body>
       </Card>

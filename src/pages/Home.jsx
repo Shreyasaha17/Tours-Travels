@@ -8,7 +8,7 @@ const Home = () => {
       <div className="home-heading">
         <span className="home-title">Travel Beyond Boundaries</span><br/>
         <p className="home-description">Embark on Epic Journeys and Explore Hidden Gems Across the Globe</p>
-        <Button variant="dark">Explore</Button>
+        <Button variant="danger">Explore</Button>
       </div>
     </div>
    

@@ -9,11 +9,11 @@ const TourBooking = () => {
   const booking=useSelector(state=>state.auth.reservation)
   const dispatch = useDispatch();
 
-    const handleCancelReservation = () => {
-        dispatch(cancelReservation());
+    const handleCancelReservation = (title) => {
+        dispatch(cancelReservation(title));
     };
 
-  if (!booking) {
+  if (booking.length===0) {
     return (
     <>
             <Container fluid className="p-5">
@@ -34,27 +34,52 @@ const TourBooking = () => {
   return (
     <>
     <div className='tour-booking'>
-    <Col xl={9} md={10} sm={10} className="p-3">
-      <Card>
-        <Card.Body>
-          <Card.Title style={{textAlign:'center'}}> Tour Booking Details</Card.Title>
-          <ul>
-            <li>Name: {booking.name} {booking.surname}</li>
-            <li>Destination: {booking.title} </li>
-            <li>Time: {booking.time} </li>
-            <li>Number of Members: {booking.member}</li>
-            <li>Address: {booking.address}</li>
-            <li>Phone Number: {booking.phone}</li>
-            <li>Pincode: {booking.pin}</li><br/>
-            <li><Button variant="primary"onClick={handleCancelReservation}>Cancel Booking</Button></li>
-          </ul>
-      
-        </Card.Body>
-      </Card>
-      </Col>
+    <Container>
+        <Row xl={12} className="justify-content-center "  style={{flexDirection:'row'}}>
+          {booking.map((booking, index) => (
+            <Col xl={4} md={8} sm={12} className="p-3 bg-primary" key={index}>
+            <Card className="p-0 mt-5">
+            <Card.Img variant="top" src={booking.image}/>
+              
+            </Card>
+          </Col>
+          ))}
+           {booking.map((booking, index) => (
+            <Col xl={6} md={8} sm={12} className="p-3 bg-primary" key={index}>
+              <Card className="p-0 m-0">
+                <Card.Body>
+                  <Card.Title style={{ textAlign:"center" }}>
+                    {booking.title} Tour Details
+                  </Card.Title>
+                  <ul>
+                    <li>Name: {booking.name} {booking.surname}</li>
+                    <li>Destination: {booking.title}</li>
+                    <li>Time: {booking.time}</li>
+                    {/* <li>Number of Members: {booking.member}</li> */}
+                    <li>Address: {booking.address}</li>
+                    <li>Phone Number: {booking.phone}</li>
+                    <li>Pincode: {booking.pin}</li>
+                    <br />
+                    <li>
+                      <Button variant="primary" onClick={() => handleCancelReservation(booking.title)}>
+                        Cancel Booking
+                      </Button>
+                      <Button variant="primary"  style={{marginLeft:'20px'}} onClick={() => handleCancelReservation(booking.title)}>
+                        Add to Cart
+                      </Button>
+                    </li>
+                  </ul>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+         
+        </Row>
+      </Container>
     </div>
     </>
   )
 }
 
 export default TourBooking
+
