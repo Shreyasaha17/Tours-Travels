@@ -13,7 +13,7 @@ const ReservationForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     surname: '',
-    member: '',
+    member: 1,
     address: '',
     phone: '',
     pin:''
@@ -34,18 +34,7 @@ const ReservationForm = () => {
       setFormData({ ...formData, [event.target.id]: event.target.value });
     };
 
-    
-    // const doReservation = (event) => {
-    //   event.preventDefault();
-    //   const reservationData = {  ...formData,title: tour.title,time: tour.time}
-    //   const action=(addReservation(reservationData))
-    //   dispatch(action);
-    //   console.log('Reservation Data:',reservationData);
-    
-    // navigate(`/tourBooking`);
-    // clearForm(); 
-    
-    // }
+  
     const doReservation = (event) => {
       event.preventDefault();
       const reservationData = { ...formData, title: tour.title, time: tour.time,image:tour.image1};
@@ -62,13 +51,26 @@ const ReservationForm = () => {
       setFormData({
         name: '',
         surname: '',
-        member: '',
         address: '',
         phone: '',
-        pin: ''
+        pin: '',
+        member: 1,
       });
 
     }
+
+
+    const handleIncrement = () => {
+      setFormData({ ...formData, member: formData.member + 1 });
+    };
+  
+    const handleDecrement = () => {
+      if (formData.member > 1) {
+        setFormData({ ...formData, member: formData.member - 1 });
+      }
+    };
+
+
   return (
    <>
    <div className='reservation-block'>
@@ -90,13 +92,19 @@ const ReservationForm = () => {
           value={formData.surname} onChange={HandleChange}/>
         </Form.Group>
       </Row>
-      {/* <Row className="mb-3">
-      <Form.Group className="mb-3" controlId="member">
-        <Form.Label style={{fontWeight:'bold'}}>Number of members</Form.Label>
-        <Form.Control style={{backgroundColor:'transparent',border:'2px solid white'}}type='number'
-        value={formData.member} onChange={HandleChange}/>
-      </Form.Group>
-      </Row> */}
+      <Row className="mb-3">
+                <Form.Group className="mb-3" controlId="member">
+                  <Form.Label style={{ fontWeight: 'bold' }}>Number of Members</Form.Label>
+                  <div className="d-flex align-items-center">
+                    <Button variant="secondary" onClick={handleDecrement}>-</Button>
+                    <Form.Control type="number" 
+                    style={{ backgroundColor: 'transparent', border: '2px solid white', textAlign: 'center',width:'70px',marginLeft:'10px',marginRight:'10px'}}
+                      value={formData.member} readOnly />
+                    <Button variant="secondary" onClick={handleIncrement}>+</Button>
+                  </div>
+                </Form.Group>
+              </Row>
+
       <Row className="mb-3">
       <Form.Group className="mb-3" controlId="address">
         <Form.Label style={{fontWeight:'bold'}}>Address</Form.Label>
@@ -119,6 +127,7 @@ const ReservationForm = () => {
         </Form.Group>
       </Row>
 
+   
 
       <Button variant="danger" type="submit">Confirm Booking</Button>
     </Form>

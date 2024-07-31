@@ -1,18 +1,24 @@
 /* eslint-disable react/prop-types */
 import { Button, Card, Col, Container, Row } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux";
-import { cancelReservation } from "../reduxstore/authSlice";
+import { addToCart, cancelReservation } from "../reduxstore/authSlice";
+import { useNavigate } from "react-router-dom";
 
 
 const TourBooking = () => {
 
   const booking=useSelector(state=>state.auth.reservation)
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
     const handleCancelReservation = (title) => {
         dispatch(cancelReservation(title));
     };
 
+    const handleAddToCart = (booking) => {
+      dispatch(addToCart(booking))
+      navigate('/cart',{ state: { booking } });
+    };
   if (booking.length===0) {
     return (
     <>
@@ -38,7 +44,7 @@ const TourBooking = () => {
         <Row xl={12} className="justify-content-center "  style={{flexDirection:'row'}}>
           {booking.map((booking, index) => (
             <Col xl={4} md={8} sm={12} className="p-3 bg-primary" key={index}>
-            <Card className="p-0 mt-5">
+            <Card className="p-0 mt-3">
             <Card.Img variant="top" src={booking.image}/>
               
             </Card>
@@ -59,12 +65,14 @@ const TourBooking = () => {
                     <li>Address: {booking.address}</li>
                     <li>Phone Number: {booking.phone}</li>
                     <li>Pincode: {booking.pin}</li>
+                    <li>Total Member: {booking.member}</li>
                     <br />
                     <li>
                       <Button variant="primary" onClick={() => handleCancelReservation(booking.title)}>
                         Cancel Booking
                       </Button>
-                      <Button variant="primary"  style={{marginLeft:'20px'}} onClick={() => handleCancelReservation(booking.title)}>
+                      <Button variant="primary"  style={{marginLeft:'20px'}}onClick={() => handleAddToCart(booking)}>
+
                         Add to Cart
                       </Button>
                     </li>

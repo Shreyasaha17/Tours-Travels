@@ -23,7 +23,9 @@ const AuthHeader = ({logout}) => {
                 <Link to="/signup" > Sign Up &nbsp; </Link> */}
                 <Link to="/dashboard" > Dashboard &nbsp; </Link>
                 <Link to="/tour" > Tour &nbsp; </Link>
-                <Link to="/tourBooking" > BookingDetails &nbsp; </Link>
+                {/* <Link to="/tourBooking" > BookingDetails &nbsp; </Link> */}
+                <Link to="/Cart" > Cart &nbsp; </Link>
+
           </Nav>
           <Nav  id='auth-navbar-button'>
           <span className='text-white mt-1'>{user?.email}</span> 

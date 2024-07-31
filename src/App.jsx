@@ -23,6 +23,7 @@ import TourDetails from './pages/TourDetails';
 import Footer from './component/footer';
 import ReservationForm from './pages/ReservationForm';
 import TourBooking from './pages/tourBooking';
+import Cart from './pages/Cart';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
           <Route path="/dashboard" element={<WithAuth><Dashboard /></WithAuth>} />
           <Route path="/tour" element={<WithAuth><Tour/></WithAuth>} />
           <Route path="/tourBooking" element={<WithAuth><TourBooking/></WithAuth>} />
+          <Route path="/cart" element={<WithAuth><Cart/></WithAuth>} />
 
           <Route path="/tourDetails/:tourId" element={<WithAuth><TourDetails/></WithAuth>} />
           <Route path="/reservationForm/:tourId" element={<WithAuth><ReservationForm /></WithAuth>} />
