@@ -4,7 +4,6 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   user: null,
   isLogin: false,
-  reservation: [],
   cart: []
 }
 
@@ -30,15 +29,15 @@ export const authSlice = createSlice({
       }
 
     },
-    addReservation: (state, action) => {
+    addToCart: (state, action) => {
       //   state.reservation=action.payload
-      state.reservation.push(action.payload);
+      state.cart.push(action.payload);
 
     },
-    cancelReservation: (state, action) => {
+    removeFromCart: (state, action) => {
       const tourTitle = action.payload;
       if (tourTitle) {
-        state.reservation = state.reservation.filter(reservation => reservation.title !== tourTitle);
+        state.cart = state.cart.filter(cart => cart.title !== tourTitle);
       }
       else {
         console.warn("No title provided for cancellation");
@@ -48,16 +47,16 @@ export const authSlice = createSlice({
     // addtocart: (state,action)=>{
     //   state.cart = [...state.cart, action.payload];
     // }
-    addToCart: (state, action) => {
-      if (!state.cart) {
-        state.cart = []; // Ensure cart is initialized if undefined
-      }
-      state.cart.push(action.payload);
-    },
-    removeFromCart: (state, action) => {
-      if (state.cart) {
-        state.cart = state.cart.filter(item => item.title !== action.payload);
-    }},
+    // addToCart: (state, action) => {
+    //   if (!state.cart) {
+    //     state.cart = []; // Ensure cart is initialized if undefined
+    //   }
+    //   state.cart.push(action.payload);
+    // },
+    // removeFromCart: (state, action) => {
+    //   if (state.cart) {
+    //     state.cart = state.cart.filter(item => item.title !== action.payload);
+    // }},
     logout: (state) => {
       state.user = null
       state.isLogin = false
@@ -67,6 +66,6 @@ export const authSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { login, logout, register, addReservation, cancelReservation,addToCart,removeFromCart } = authSlice.actions
+export const { login, logout, register,addToCart,removeFromCart } = authSlice.actions
 
 export default authSlice.reducer//-->add this authslice to store

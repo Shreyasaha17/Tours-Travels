@@ -50,13 +50,11 @@ const Login = () => {
         <Form className='Login-Form' onSubmit={doLogin}>
           <Form.Group className="mb-3" controlId="email">
             <Form.Label style={{fontWeight:'bold'}}>Email address</Form.Label>
-            <Form.Control type="email" style={{backgroundColor:'rgba(0, 0, 0, 0.5)',color:'white',border:'2px solid white'}}
-             placeholder="Email" value={email} onChange={HandleChange} />
+            <Form.Control type="email" className="custom-input" value={email} onChange={HandleChange} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="password">
             <Form.Label style={{fontWeight:'bold'}}>Password</Form.Label>
-            <Form.Control type="password" style={{backgroundColor:'transparent',border:'2px solid white'}}
-              value={password} onChange={HandleChange} />
+            <Form.Control type="password" className="custom-input"  value={password} onChange={HandleChange} />
           </Form.Group>
           <Button variant="success" type="submit" ><strong>Submit</strong></Button>
 
@@ -67,7 +65,7 @@ const Login = () => {
             </div>
             <div className="mt-2 text-center">
               <span className="text-white">Don't have an account? </span>
-              <Link to="/sign-up" className="text-light" style={{ textDecoration: 'none' }}>
+              <Link to="/signup" className="text-warning" style={{ textDecoration: 'none' }}>
                 Sign Up
               </Link>
             </div>

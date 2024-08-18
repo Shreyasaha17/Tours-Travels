@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { NavDropdown } from 'react-bootstrap';
 
 const AuthHeader = ({logout}) => {
   const user = useSelector(state => state.auth.user)
@@ -18,17 +19,19 @@ const AuthHeader = ({logout}) => {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav  id='auth-navbar-menu'>
                 <Link to="/home">Home &nbsp; </Link>
-                <Link to="/aboutus" >About &nbsp; </Link>
-                {/* <Link to="/login" >Login &nbsp; </Link>
-                <Link to="/signup" > Sign Up &nbsp; </Link> */}
-                <Link to="/dashboard" > Dashboard &nbsp; </Link>
                 <Link to="/tour" > Tour &nbsp; </Link>
-                {/* <Link to="/tourBooking" > BookingDetails &nbsp; </Link> */}
+                <Link to="/dashboard" > Dashboard &nbsp; </Link>
                 <Link to="/Cart" > Cart &nbsp; </Link>
-
+                <Link to="/aboutus" >About &nbsp; </Link>
           </Nav>
           <Nav  id='auth-navbar-button'>
-          <span className='text-white mt-1'>{user?.email}</span> 
+          <span className='text-white mt-1'></span> 
+          <NavDropdown title={<span className="text-white">{user?.email}</span>}  id="basic-nav-dropdown"
+          menuVariant="dark"  className="custom-dropdown">
+               <Link to="/profile"> Profile &nbsp; </Link>
+              <NavDropdown.Item href="#action/3.2">Bookings</NavDropdown.Item>
+              <NavDropdown.Divider />
+            </NavDropdown>
           <Button variant="outline-light mx-2" onClick={logout}> Logout </Button>
   
           </Nav>

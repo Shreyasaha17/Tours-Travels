@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Roboto+Slab:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Mukta:wght@200;300;400;500;600;700;800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Roboto+Slab:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 #root {
   max-width: 100%;
   margin: 0 auto;
- 
-  text-align: center;
+ text-align: center;
 }
 
 .logo {
@@ -17,6 +21,51 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+.custom-input {
+  width: 300px!important;
+  background-color: transparent!important;
+  color: white;
+  border: 2px solid white;
+  box-shadow: none !important;
+}
+.custom-input:focus {
+  background-color: transparent !important; 
+  color: white !important; 
+  border-color: white !important; 
+  outline: none !important; 
+}
+@media (max-width: 1024px) {
+  .custom-input {
+    width: 500px!important;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-input {
+    width: 400px!important;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-input {
+    width: 250px!important;
+  }
+}
+
+
+/*Signup css*/
+.signup-card{
+  height: 100vh;
+  width: 100%;
+  background-image: url(/images/signup.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+
 }
 /* login form css */
 .form-control{
@@ -37,14 +86,7 @@
     align-items: center; 
 
   }
-  .glass-card{
-    background: rgba(255, 255, 255, 0.9); /* 70% opacity for a subtle glass effect */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  backdrop-filter: blur(8px); /* Frosted glass effect */
-  border: 2px solid rgba(255, 255, 255, 0.5); /* Light border with some opacity */
-  padding: 20px;
-    color: #000;  }
+
 .row{
   flex-direction:column;
 }
@@ -99,6 +141,16 @@
     width: 33.32%;
      text-align:right;
   }
+  .custom-dropdown .dropdown-toggle::after {
+    color: white !important;
+  }
+  
+  /* .custom-dropdown .dropdown-item {
+    color: white !important;
+  }
+   */
+
+  
   .card-body{
     text-align: left;
   }
@@ -152,9 +204,9 @@
 
 /* home page Design*/
 .homepage{
-  height: 100vh;
+  height: 80vh;
   width: 100%;
-  background-image: url(/images/home1.jpg);
+  background-image: url(/images/home2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -165,8 +217,12 @@
   padding-right: 70px;
 }
 .home-heading{
+
   color: white;
   font-family:Bona Nova SC; 
+  background-Color:rgba(0, 0, 0, 0.5);
+  padding-bottom: 20px;
+
   
 }
 .home-title{
@@ -178,6 +234,23 @@
   padding-left: 40px;
   padding-right: 40px;
 }
+.testimonial{
+ padding-top: 30px;
+ padding-bottom: 20px;
+ font-family: Pacifico ;
+}
+.testimonial1{
+  padding-top: 10px;
+  padding-bottom: 20px;
+  font-family: Edu VIC WA NT Beginner;
+ }
+ .testmonial-text{
+  font-family: Alegreya;
+ }
+ .jouneymoments{
+  font-family: Josefin Sans  ;
+}
+
 @media (max-width: 768px) {
   .homepage {
     height: 60vh;
@@ -253,11 +326,43 @@ li{
 .empty-image{
   height: 40vh;
   width: 100%;
-  background-image: url(../public/images/empty.png);
+  background-image: url(/images/empty.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .bookingimage{
   height:400px;
+}
+/* about-page-css */
+.carousel-image {
+  height: 500px;
+  object-fit: cover;
+}
+.service-card {
+ border: 2px solid black;
+}
+
+.service-icon {
+  color: rgb(0, 0, 0);
+}
+
+
+.service-card ul {
+  list-style-type:disc;
+  padding-left:20px;
+  color: black;
+}
+
+.service-card li {
+  margin: 5px 0;
+}
+.tour-location{
+color: white;
+font-size: 20px;
+text-align: left;
+padding-left: 20px;
+padding-top: 10px;
+font-family: Kanit
+;
 }

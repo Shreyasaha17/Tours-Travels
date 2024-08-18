@@ -3,6 +3,7 @@ import AuthHeader from "../component/AuthHeader";
 import { Outlet,useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../reduxstore/authSlice";
+import Footer from "../component/footer";
 
 
 const Layout = () => {
@@ -20,7 +21,7 @@ const Layout = () => {
       <>
       {isLogin ? <AuthHeader logout={applogout}/>:<Header/>}
       <Outlet />
-      
+      <Footer/>
       </>
 
     )
