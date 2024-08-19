@@ -25,12 +25,12 @@ const Footer = () => {
     </Col>
     <Col lg={3} md={6} sm={12} className='bg-dark text-white p-4 ' style={{textAlign:'left'}}>
             <h5>Quick Link</h5><br/>
-            <ul className="list-unstyled">
+            <ul className="list-unstyled p-2">
               <li><a href="/aboutus">About Us</a></li>
               <li><a href="/dashboard">Dashboard</a></li>
             </ul>
     </Col>
-    <Col lg={3} md={6} sm={12} className='bg-dark text-white  p-4 ps-1 ' style={{textAlign:'left'}} >
+    <Col lg={3} md={6} sm={12} className='bg-dark text-white  p-4  ' style={{textAlign:'left'}} >
             <h5>Social Media</h5><br/>
             <ul>
                 <li>

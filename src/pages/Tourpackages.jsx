@@ -20,11 +20,11 @@ const Tour = () => {
   return (
     <>
     <p className='heading'>Explore the World</p>
-      <Container>
-        <Row className='mt-5 bg-dark'  >
+      <Container fluid>
+        <Row className='mt-5 p-4 m-1'  >
         {tourData.map((tour)=>(
           <Col key={tour.id} lg={4} md={6} sm={12} className='bg-transparent p-4'>
-           <Card className='bg-transparent text-white p-0'>
+           <Card className='bg-dark text-white p-0'>
               <Card.Img variant="top" src={tour.image} className='card-images' />
               <Card.Body>
                 <Card.Title>{tour.title}</Card.Title>

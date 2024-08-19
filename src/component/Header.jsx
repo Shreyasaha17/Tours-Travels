@@ -6,34 +6,35 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
 
-  const goTo=(page)=>{
+  const goTo = (page) => {
     navigate(page)
- 
+
   }
 
   return (
     <Navbar expand="lg p-0" className="bg-dark">
-    <Container className='bg-transparency  m-0'>
-      <Navbar.Brand className='text-white'>Tour & Travels</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav" >
-        <Nav  id='navbar-menu'>
-                <Link to="/home">Home &nbsp; </Link>
-                <Link to="/aboutus" >About &nbsp; </Link>
-                <Link to="/login" >Login &nbsp; </Link>
-                <Link to="/signup" > Sign Up &nbsp; </Link>
-                {/* <Link to="/dashboard" > Dashboard &nbsp; </Link>
-                <Link to="/tour" > Tour &nbsp; </Link> */}
+      <Container className='bg-transparency  m-0'>
+        <Navbar.Brand className='text-white'>Tour & Travels</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" >
+          <Nav id='navbar-menu'>
+            <Link to="/home">Home &nbsp; </Link>
+            <Link to="/tour" > Tour &nbsp; </Link>
+            <Link to="/login" >Login &nbsp; </Link>
+            <Link to="/signup" > Sign Up &nbsp; </Link>
+            <Link to="/aboutus" >About &nbsp; </Link>
+
+
           </Nav>
-          <Nav  id='navbar-button'>
-          <Button variant="outline-light" className='header-button m-1'><span onClick={()=>goTo("/login")}>Login</span></Button>
-          <Button variant="outline-light" className='header-button m-1'><span onClick={()=>goTo("/signup")}>Sign Up</span></Button>
+          <Nav id='navbar-button'>
+            <Button variant="outline-light" className='header-button m-1'><span onClick={() => goTo("/login")}>Login</span></Button>
+            <Button variant="outline-light" className='header-button m-1'><span onClick={() => goTo("/signup")}>Sign Up</span></Button>
           </Nav>
-      </Navbar.Collapse>
-    </Container>
-  </Navbar>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   )
 }
 

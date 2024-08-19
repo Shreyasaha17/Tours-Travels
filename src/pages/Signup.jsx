@@ -3,14 +3,21 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
-import { useDispatch} from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { register } from '../reduxstore/authSlice';
+import { Col, Container, Row } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+
+
 const Signup = () => {
     const [firstname, setFirstname] = useState("")
     const [lastname, setLastname] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [phno, setPhno] = useState("")
+
     const navigate = useNavigate()
 
     const dispatch = useDispatch();
@@ -29,43 +36,60 @@ const Signup = () => {
         else if (id === 'password') {
             setPassword(value)
         }
+        else if (id === 'phno') {
+            setPhno(value)
+        }
     }
     const doRegister = (event) => {
         event.preventDefault()
-        let data=dispatch(register({ firstname, lastname, email, password }));
-        console.log("Signup Data :",data)
+        let data = dispatch(register({ firstname, lastname, email, password, phno }));
+        console.log("Signup Data :", data)
         navigate(`/login`);
     }
 
     return (
         <>
-            <h3>SignUp</h3>
-            <Card body >
-                <Form className='Login-Form' onSubmit={doRegister}>
-                    <Form.Group className="mb-3" controlId="firstname">
-                        <Form.Label>First Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter first name" value={firstname} onChange={handleChange} />
-                    </Form.Group>
+            <div className="signup-card">
+                <Card className="text-white" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', marginTop: '40px' }}>
+                    <Card.Body className="p-3 " >
+                        <h3 className="pb-3"><strong>Signup</strong></h3>
+                        <Form className='Login-Form' onSubmit={doRegister}>
+                            <Form.Group className="mb-3" controlId="firstname">
+                                <Form.Label style={{ fontWeight: 'bold' }}>First Name</Form.Label>
+                                <Form.Control type="text" className="custom-input" value={firstname} onChange={handleChange} />
+                            </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="lastname">
-                        <Form.Label>Last Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter last name" value={lastname} onChange={handleChange} />
-                    </Form.Group>
+                            <Form.Group className="mb-3" controlId="lastname">
+                                <Form.Label style={{ fontWeight: 'bold' }}>Last Name</Form.Label>
+                                <Form.Control type="text" className="custom-input" value={lastname} onChange={handleChange} />
+                            </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="email">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleChange} />
-                    </Form.Group>
+                            <Form.Group className="mb-3" controlId="email">
+                                <Form.Label style={{ fontWeight: 'bold' }}>Email address</Form.Label>
+                                <Form.Control type="email" className="custom-input" value={email} onChange={handleChange} />
+                            </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="password">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Enter Password" value={password} onChange={handleChange} />
-                    </Form.Group>
+                            <Form.Group className="mb-3" controlId="password">
+                                <Form.Label style={{ fontWeight: 'bold' }}>Password</Form.Label>
+                                <Form.Control type="password" className="custom-input" value={password} onChange={handleChange} />
+                            </Form.Group>
 
-                    <Button variant="primary" type='submit'>Submit</Button>
-                </Form>
-            </Card>
+                            <Form.Group className="mb-3" controlId="phno">
+                                <Form.Label style={{ fontWeight: 'bold' }}>Phone No</Form.Label>
+                                <Form.Control type="number" className="custom-input" value={phno} onChange={handleChange} />
+                            </Form.Group>
 
+                            <Row className="d-flex justify-content-center p-0 "><Button variant="success" type='submit' style={{ width: '95%' }}>Submit</Button></Row>
+                            <div className="mt-3 text-center">
+                                <span className="text-white">Don't have an account? </span>
+                                <Link to="/login" className="text-warning" style={{ textDecoration: 'none' }}>Login</Link>
+                            </div>
+                           
+                            
+                        </Form>
+                    </Card.Body>
+                </Card>
+            </div >
         </>
     )
 }
