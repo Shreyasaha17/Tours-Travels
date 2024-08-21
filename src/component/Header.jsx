@@ -17,7 +17,7 @@ const Header = () => {
     <Navbar expand="lg p-0" className="bg-dark">
       <Container className='bg-transparency  m-0'>
         <Navbar.Brand className='text-white'>Tour & Travels</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav"className='custom-toggler' />
         <Navbar.Collapse id="basic-navbar-nav" >
           <Nav id='navbar-menu'>
             <Link to="/home">Home &nbsp; </Link>

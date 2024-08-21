@@ -78,7 +78,7 @@ const Home = () => {
               <Card className="h-100 text-center" style={{borderRadius:'30px',border:'2px solid black'}}>
                 <Card.Body>
                   <div className="d-flex justify-content-center">
-                  <Image style={{width:'100px',height:'100px'}} src="https://www.wovlene.com/cm-admin/uploads/image/testimonial-1.jpg" roundedCircle/>
+                  <Image style={{width:'100px',height:'100px'}} src="https://st2.depositphotos.com/1037987/42002/i/450/depositphotos_420021494-stock-photo-portrait-female-owner-gift-store.jpg" roundedCircle/>
                     </div>
                     <div className="d-flex justify-content-center">
                     <FontAwesomeIcon icon={faQuoteLeft} size="2x" className="mb-3 mt-2" />
@@ -95,7 +95,7 @@ const Home = () => {
                 <Card.Body>
                  
                   <div className="d-flex justify-content-center">
-                  <Image style={{width:'100px',height:'100px'}} src="https://w7.pngwing.com/pngs/334/401/png-transparent-testimonial-avatar-business-plan-advertising-marketing-avatar-heroes-plan-business-thumbnail.png" roundedCircle/>
+                  <Image style={{width:'100px',height:'100px'}} src="https://www.findtherightclick.com/wp-content/uploads/2017/07/Matt-T-Testimonial-pic.jpg" roundedCircle/>
 
                   </div>
                   <div className="d-flex justify-content-center">
