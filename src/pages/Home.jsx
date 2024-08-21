@@ -95,7 +95,7 @@ const Home = () => {
                 <Card.Body>
                  
                   <div className="d-flex justify-content-center">
-                  <Image style={{width:'100px',height:'100px'}} src="https://www.wovlene.com/cm-admin/uploads/image/testimonial-3.jpg" roundedCircle/>
+                  <Image style={{width:'100px',height:'100px'}} src="https://w7.pngwing.com/pngs/334/401/png-transparent-testimonial-avatar-business-plan-advertising-marketing-avatar-heroes-plan-business-thumbnail.png" roundedCircle/>
 
                   </div>
                   <div className="d-flex justify-content-center">
