@@ -59,7 +59,7 @@ const tourData = [
         image1: "https://p4.wallpaperbetter.com/wallpaper/141/324/22/hotel-atlantis-dubai-the-palm-wallpaper-preview.jpg",
         image2: "https://www.dubaitravelguide.info/wp-content/uploads/burj_khalifa_in_dubai-1.jpg.webp",
         image3: "https://media.istockphoto.com/id/1403802469/photo/female-head-decorated-with-flowers-in-miracle-garden-of-dubai.jpg?s=612x612&w=0&k=20&c=t97q60lGQAD6grmmH9yX0SnfbLa0pQphNiIIlzLkOPA=",
-        image4: "https://www.holidify.com/images/cmsuploads/compressed/shutterstock_508380913_20190822131953_20190822132026.jpg",
+        image4: "https://cdn.getyourguide.com/img/tour/7c2916cdb07e853a.jpeg/146.jpg",
         image5: "https://c4.wallpaperflare.com/wallpaper/143/422/428/burj-al-arab-dubai-wallpaper-preview.jpg",
         description1: "Discover the luxury, adventure, and cultural heritage of Dubai",
         description2:"Experience Dubai: Unforgettable Moments Await",
