@@ -81,7 +81,7 @@ const tourData = [
     {
         id: 4,
         title: "Maldives",
-        image: "https://wallpapers.com/images/featured/maldives-23wyvlaqa7aydqny.jpg",
+        image: "https://media.gq-magazine.co.uk/photos/61a62ee102e1c72f0695b4e5/16:9/w_2560%2Cc_limit/301121_maldives_HP.jpg",
         image1: "https://i.pinimg.com/originals/e0/de/76/e0de761b33064f764f512c290c00e45b.jpg",
         image2: "https://petnahafricatours.com/wp-content/uploads/2023/08/maldives.jpg",
         image3: "https://preview.redd.it/m7fwb4orp0f11.jpg?width=640&crop=smart&auto=webp&s=e2e1adcca162c80bba33b19d02227fc4f8890b1b",
