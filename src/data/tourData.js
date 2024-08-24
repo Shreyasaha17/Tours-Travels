@@ -99,7 +99,7 @@ const tourData = [
     {
         id: 5,
         title: "Kashmir",
-        image: "/images/kashmir.jpg",
+        image: "https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/2023/08/pexels-photo-12750077.webp",
         image1: "https://i0.wp.com/www.tusktravel.com/blog/wp-content/uploads/2022/09/Best-Places-to-Visit-Kashmir.jpg?fit=1200%2C798&ssl=1",
         image2: "https://img.traveltriangle.com/blog/wp-content/uploads/2020/02/cover-image-of-Valleys-In-Kashmir_18th-jan.jpg",
         image3: "https://c1.wallpaperflare.com/preview/659/446/473/landscape-view-himalayas-kashmir.jpg",
