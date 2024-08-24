@@ -145,7 +145,7 @@ const tourData = [
     {
         id: 7,
         title: "Ladakh",
-        image: "/images/ladakh.jpg",
+        image: "https://unpluggedlife.in/wp-content/uploads/2023/03/Unplugged_Life_Trip_Pangong_3-1170x658.jpg",
         image1: "https://e0.pxfuel.com/wallpapers/382/218/desktop-wallpaper-leh-ladakh-holidays.jpg",
         image2: "https://www.baltana.com/files/wallpapers-33/Pangong-Lake-Leh-Ladakh-HD-Wallpaper-116619.jpg",
         image3: "https://e0.pxfuel.com/wallpapers/969/184/desktop-wallpaper-ladakh-bike-trip-bike-travel.jpg",
