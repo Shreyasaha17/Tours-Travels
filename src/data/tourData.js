@@ -167,7 +167,7 @@ const tourData = [
     {
         id: 8,
         title: "Paris,France",
-        image: "/images/paris.jpg",
+        image: "https://images.alphacoders.com/905/thumb-1920-905423.jpg",
         image1: "https://wallpaperbat.com/img/1875392-france-wallpaper.jpg",
         image2: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/af/32/7d/vista-nocturna.jpg?w=1200&h=700&s=1",
         image3: "https://www.tripsavvy.com/thmb/9Ep6I-BaioFmm_0-NAS5tm3ZP1o=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Untitled_Panorama50-3d7d74b320d14a79876f960e7b0c551b.jpg",
@@ -197,7 +197,7 @@ const tourData = [
     {
         id: 9,
         title: "Venice",
-        image: "/images/venice.jpg",
+        image: "https://wallpapercave.com/wp/wp11653950.jpg",
         image1: "https://4kwallpapers.com/images/wallpapers/venice-city-santa-maria-della-salute-grand-canal-roman-2560x1440-6063.jpg",
         image2: "https://getwallpapers.com/wallpaper/full/1/f/e/622399.jpg",
         image3: "https://content.r9cdn.net/rimg/dimg/53/40/9c5376f2-city-8997-16383d500b1.jpg?width=1366&height=768&xhint=1111&yhint=679&crop=true",
