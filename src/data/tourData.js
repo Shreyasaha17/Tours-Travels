@@ -23,7 +23,7 @@ const tourData = [
     {
         id: 2, title: "Bali", 
         picture:"https://cimg0.ibsrv.net/cimg/www.dornob.com/1204x1000_85/232/Hideout-Horizon-Bamboo-Vacation-Bali-601232.jpg",
-        image: "https://www.holidify.com/images/bgImages/BALI.jpg",
+        image: "https://maharajatravels.in/wp-content/uploads/2023/05/bali.jpg",
         image5: "https://onelifeadventures.com/wp-content/uploads/2021/10/bali_gates.jpg",
         image2: "https://www.odt.co.nz/sites/default/files/story/2024/02/gettyimages-1471856897.jpg",
         image3: "https://content.sierraclub.org/outings/sites/content.sierraclub.org.outings/files/trips/main-images/24635_1_bloodua_GettyImages.jpg",
