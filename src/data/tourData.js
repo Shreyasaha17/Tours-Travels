@@ -123,7 +123,7 @@ const tourData = [
     {
         id: 6,
         title: "Goa",
-        image: "/images/goa.jpg",
+        image: "https://backpackersunited.in/_next/image?url=https%3A%2F%2Fbpu-images-v1.s3.eu-north-1.amazonaws.com%2Fuploads%2Fgoa%202_11zon.webp&w=3840&q=75",
         image1: "https://media.istockphoto.com/id/123384481/photo/morjim-beach-goa-india.jpg?s=612x612&w=0&k=20&c=scTzsqKg_wyj8odlMBFiLLurAl3YXHNaYus01rhGfIM=",
         image2: "https://www.moneytap.com/blog/wp-content/uploads/2023/04/cost-of-living-in-goa-scaled.jpeg",
         image3: "https://im.whatshot.in/img/2020/Apr/header-1587650072.jpg",
