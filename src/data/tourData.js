@@ -1,7 +1,7 @@
 
 const tourData = [
     {
-        id: 1, title: "Kerala", image: "/images/kerala.jpg",
+        id: 1, title: "Kerala", image: "https://media.istockphoto.com/id/505490132/photo/tea-plantations-and-river-in-hills.jpg?s=612x612&w=0&k=20&c=ipAMXQpv8OMaYWIDMqfvh56APw2BYivzarcXyeWkSGQ=",
         image1: "/images/kerala1.jpg", image2: "/images/kerala2.jpg", image3: "/images/kerala3.jpg", image4: "/images/kerala4.jpg", image5: "/images/kerala5.jpg",
         description1: "Visit to Kerala will give you a gratifying experience and peace.",
         description2: "Discover Kerala: Backwaters, Beaches, and Beyond ",
