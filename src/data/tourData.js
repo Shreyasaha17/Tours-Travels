@@ -3,7 +3,11 @@ const tourData = [
     {
         id: 1, title: "Kerala", 
         image: "https://media.istockphoto.com/id/505490132/photo/tea-plantations-and-river-in-hills.jpg?s=612x612&w=0&k=20&c=ipAMXQpv8OMaYWIDMqfvh56APw2BYivzarcXyeWkSGQ=",
-        image1: "/images/kerala1.jpg", image2: "/images/kerala2.jpg", image3: "/images/kerala3.jpg", image4: "/images/kerala4.jpg", image5: "/images/kerala5.jpg",
+        image1: "https://www.indiautentica.com/wp-content/uploads/2022/10/29ezcwtmtnm.jpg", 
+        image2: "https://media1.thrillophilia.com/filestore/tyhyy419pw0ghftgs9uedy6pyb56_1550046978_7453270882_117ac0ca1d_k.jpg.jpg?w=400&dpr=2", 
+        image3: "/https://www.picsofasia.com/wp-content/uploads/2019/12/DSCF7615.jpg", 
+        image4: "https://www.keralatourism.holiday/blog/wp-content/uploads/2019/09/kerala-festival-1024x640.jpg", 
+        image5: "https://pyt-blogs.imgix.net/2020/06/photo-1580818135730-ebd11086660b.jpeg?auto=format&ixlib=php-3.3.0",
         description1: "Visit to Kerala will give you a gratifying experience and peace.",
         description2: "Discover Kerala: Backwaters, Beaches, and Beyond ",
         duration: "Duration : 8 Days 7 Nights",
