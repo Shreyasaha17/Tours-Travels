@@ -1,10 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 
 import { Card, Container } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/esm/Button';
 import upcomingTour from '../data/upcomingTourData';
 import Image from 'react-bootstrap/Image';
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons';
@@ -13,14 +12,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 const Dashboard = () => {
-  const user = useSelector(state => state.auth.user)
+  // const user = useSelector(state => state.auth.user)
+  const user = JSON.parse(localStorage.getItem('user')) 
+
 
   return (
     <>
       <Card style={{ width: '50%', margin: '20px auto', border: '4px solid black' }}>
         <Card.Body>
           <Card.Title><h2>User's Details</h2></Card.Title>
-          <Card.Text>Email : {user.email}</Card.Text>
+          <Card.Text>Name : {user.name}</Card.Text>
         </Card.Body>
       </Card>
       <Container fluid>

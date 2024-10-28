@@ -1,6 +1,4 @@
-//import { useState } from 'react'
-//import reactLogo from './assets/react.svg'
-//import viteLogo from '/vite.svg'
+
 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -24,6 +22,10 @@ import ReservationForm from './pages/ReservationForm';
 // import TourBooking from './pages/tourBooking';
 import Cart from './pages/Cart';
 import Profile from './pages/Profile';
+import WithAdminAuth from './auth/WithAdminAuth';
+import AddTour from './AdminPages/AddTour';
+import AdminTour from './AdminPages/AdminTour';
+import UserList from './AdminPages/UserList';
 
 function App() {
 
@@ -41,9 +43,13 @@ function App() {
           <Route path="/profile" element={<WithAuth><Profile/></WithAuth>} />
           <Route path="/tour" element={<Tour />} />
           <Route path="/cart" element={<WithAuth><Cart /></WithAuth>} />
-          <Route path="/tourDetails/:tourId" element={<TourDetails />} />
-          <Route path="/reservationForm/:tourId" element={<WithAuth><ReservationForm /></WithAuth>} />
+          <Route path="/tourDetails/:id" element={<TourDetails />} />
+          <Route path="reservationForm/:id" element={<WithAuth><ReservationForm /></WithAuth>} />
           <Route path="/home" element={<Home />} />
+
+        <Route path="/admin/addtour" element={<WithAdminAuth><AddTour /></WithAdminAuth>} />
+        <Route path="/admin/admintour" element={<WithAdminAuth><AdminTour /></WithAdminAuth>} />
+        <Route path="/admin/userlist" element={<WithAdminAuth><UserList /></WithAdminAuth>} />
         </Route>
       </Routes>
     </>

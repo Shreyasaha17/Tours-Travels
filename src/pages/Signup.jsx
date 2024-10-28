@@ -1,14 +1,15 @@
+/* eslint-disable react/no-unescaped-entities */
 //import React from 'react'
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { register } from '../reduxstore/authSlice';
-import { Col, Container, Row } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+// import { useDispatch } from "react-redux";
+// import { register } from '../reduxstore/authSlice';
+import Row from 'react-bootstrap/Row';
+
+
 
 
 const Signup = () => {
@@ -20,7 +21,7 @@ const Signup = () => {
 
     const navigate = useNavigate()
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
     const handleChange = (event) => {
         const { id, value } = event.target
@@ -40,11 +41,37 @@ const Signup = () => {
             setPhno(value)
         }
     }
-    const doRegister = (event) => {
+    const doRegister = async(event) => {
         event.preventDefault()
-        let data = dispatch(register({ firstname, lastname, email, password, phno }));
-        console.log("Signup Data :", data)
-        navigate(`/login`);
+        // let data = dispatch(register({ firstname, lastname, email, password, phno }));
+        // console.log("Signup Data :", data)
+        if (!firstname || !lastname ||!email || !password || !phno) {
+            alert("Please fill out all fields.");
+            return;
+        }
+         try {
+          const response=await fetch("http://localhost:7001/user/register",{
+            method:'POST',
+          headers: {
+              'content-type':'application/json'
+            },
+            body:JSON.stringify({ firstname, lastname, email, password, phno })
+    
+          })
+          const result= await response.json()
+          if(result.ok){
+            alert(result.message)
+            navigate(`/login`);
+
+          }
+          else{
+            alert(result.message)
+          }
+          
+         } catch (error) {
+          console.log(error)
+         }
+          
     }
 
     return (

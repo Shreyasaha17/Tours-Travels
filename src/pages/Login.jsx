@@ -4,9 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Link, useNavigate } from "react-router-dom";
-//import storageHandler from "../helper/storageHandler";
-import { login } from "../reduxstore/authSlice";
-import { useDispatch } from "react-redux";
+
 
 
 
@@ -14,7 +12,7 @@ const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const HandleChange = (event) => {
 
@@ -29,13 +27,66 @@ const Login = () => {
   }
   
 
-  const doLogin = (event) => {
+  const doLogin = async(event) => {
     event.preventDefault();
     
     // storageHandler.setLocalData({ email });
-    let data= dispatch(login({ email, password }));
-    console.log("Login Data :",data);
+    // let data= dispatch(login({ email, password }));
+    // console.log("Login Data :",data);
+    if ( !email || !password ) {
+      alert("Please fill out all fields.");
+      return;
+  }
+   try {
+    let response;
+
+    if (email === "admin@gmail.com") {
+      // Send admin login request
+      response = await fetch("http://localhost:7001/admin/login", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+    } 
+    
+    else {
+       response=await fetch("http://localhost:7001/user/login",{
+        method:'POST',
+      headers: {
+          'content-type':'application/json'
+        },
+        body:JSON.stringify({email,password})
+  
+      })
+    }
+      const result= await response.json()
+      console.log('Response:', result);
+      if(result.ok){
+      
+       if (email === "admin@gmail.com") {
+        localStorage.setItem("admintoken", result.token); 
+        alert(result.message);
+        navigate("/admin/addtour");
+        
+       } else {
+        localStorage.setItem('token',result.token)
+        localStorage.setItem('user', JSON.stringify({ email: result.email, name: result.name }));
+  
+  
+        alert(result.message)
         navigate(`/dashboard`);
+       }
+      }
+      else{
+        alert(result.message || "Login failed. Please try again.");
+      }
+    
+    
+   } catch (error) {
+    console.log(error)
+   }
   }
 
 

@@ -1,8 +1,8 @@
-import React from 'react';
+/* eslint-disable react/no-unescaped-entities */
 import { Button, Container, Row, Col, Card,Image, Carousel } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faQuoteLeft, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faQuoteLeft,} from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
   const navigate = useNavigate();

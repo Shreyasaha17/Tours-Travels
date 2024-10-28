@@ -1,85 +1,36 @@
 import Header from "../component/Header";
 import AuthHeader from "../component/AuthHeader";
-import { Outlet,useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../reduxstore/authSlice";
+import { Outlet, useNavigate } from "react-router-dom";
 import Footer from "../component/footer";
-
+import AdminHeader from "../component/AdminHeader";
 
 const Layout = () => {
-
- const dispatch=useDispatch()
- const isLogin=useSelector(state=>state.auth.isLogin)
- const navigate = useNavigate();
+    const navigate = useNavigate();
    
- 
- const applogout=()=>{
-    dispatch(logout())
-   navigate('/login')
-   }
-    return(
-      <>
-      {isLogin ? <AuthHeader logout={applogout}/>:<Header/>}
-      <Outlet />
-      <Footer/>
-      </>
+    const isLogin = !!localStorage.getItem('token');
+    const isAdmin = !!localStorage.getItem('admintoken');
 
-    )
+    const logout = () => {
+      console.log('Logout function triggered');
+        if (isAdmin) {
+            console.log('Admin logout clicked');
+            localStorage.removeItem('admintoken');
+        } else if (isLogin) {
+            console.log('User logout clicked');
+            localStorage.removeItem('token'); // Remove token
+            localStorage.removeItem('user');  // Remove user data
+        }
+        navigate('/'); // Redirect to home page for admin or login for user
+    }
 
-  
+
+    return (
+        <>
+            {isAdmin ? <AdminHeader logout={logout} /> : isLogin ? <AuthHeader logout={logout} /> : <Header />}
+            <Outlet />
+            <Footer />
+        </>
+    );
 }
 
-export default Layout
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { useState, useEffect } from "react";
-// import { Outlet, useNavigate } from "react-router-dom";
-// import Header from "../component/Header";
-// import AuthHeader from "../component/AuthHeader";
-// import storageHandler from "../helper/storageHandler";
-
-// const Layout = () => {
-//     const [user, setUser] = useState(null);
-//     const navigate = useNavigate();
-
-//     useEffect(() => {
-//         const authData = storageHandler.getLocalData();
-//         setUser(authData);
-        
-//     }, [])
-    
-//     const logout = () => {
-//         storageHandler.removeLocalData('local-store');
-//         setUser(null);
-//         navigate("/login")
-//     }
-
-//   return (
-//     <>
-//      {user ? <AuthHeader user={user} logout={logout} /> : <Header/>}
-//      <Outlet context={{ setUser }}/>
-//     </>
-//   )
-// }
-
-// export default Layout;
-
-
-
-
+export default Layout;

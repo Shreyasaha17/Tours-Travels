@@ -1,90 +1,108 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap');
-  
-.gallery-1{
-    background-color: transparent;
-    box-sizing: border-box;
-  }
- 
-  .bg-dark {
-    --bs-bg-opacity: 1;
-    background-color: rgb(0, 0, 0) !important;
-  }
-  .gallery1-image{
-    height: 407px;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-  }
-  .gallery2-image {
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-  }
-  .row {
-   --bs-gutter-x: 0.5rem !important;
-
-  }
-  .tourdetails-heading{
-   color: yellow;
-   font-size: 25px;
-   font-family:Merriweather;
-   text-align: left;
-  }
-  .tourdetails-duration{
-    color:white;
-   font-size: 20px;
-   font-family:Merriweather;
-   text-align: left;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
-.overview-heading{
-  font-family:Bona Nova SC;
+
+body {
+  overflow-x: hidden; 
+}
+
+.bg-dark {
+  --bs-bg-opacity: 1;
+  background-color: rgb(0, 0, 0) !important;
+}
+
+.gallery-1 {
+  background-color: transparent;
+  box-sizing: border-box;
+}
+
+.gallery1-image {
+  height: 407px;
+  width: 100%; 
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.gallery2-image {
+  height: 200px;
+  width: 100%; 
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.row {
+  --bs-gutter-x: 0.5rem !important;
+  max-width: 100%; 
+  margin-right: 0; 
+  margin-left: 0; 
+  padding: 0; 
+}
+
+.tourdetails-heading {
+  color: yellow;
+  font-size: 25px;
+  font-family: 'Merriweather';
+  text-align: left;
+}
+
+.tourdetails-duration {
+  color: white;
+  font-size: 20px;
+  font-family: 'Merriweather';
+  text-align: left;
+}
+
+.overview-heading {
+  font-family: 'Bona Nova SC';
   font-size: 35px;
   text-align: center;
   font-weight: 500;
   color: yellow;
 }
-.tour-plan{
+
+.tour-plan {
   text-align: left;
   color: white;
   font-size: 20px;
   margin-bottom: 10px;
+  line-height: 2.0;
 }
-.tour-time{
+
+.tour-time {
   color: yellow;
-   font-size: 20px;
-   margin-bottom: 20px;
-   margin-left: 17px;
-   font-family:Merriweather;
-   text-align: left;
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-left: 0; 
+  font-family: 'Merriweather';
+  text-align: left;
 }
-.Book{
-  width: 210px;
+
+.Book {
+  width: 100%; 
   margin: 20px;
-  font-family:Merriweather;
+  font-family: 'Merriweather';
 }
 
-  @media (max-width: 768px) {
-    .row{
-        padding: 10px !important;
-    }
-    .gallery1-image, .gallery2-image  {
-        margin-top: 10px;
-      height: 300px; 
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .row{
-        padding:10px !important;
-    }
-    .gallery1-image, .gallery2-image  {
-        margin-top: 10px;
-        height: 200px; 
-      }
+@media (max-width: 768px) {
+  .row {
+    padding: 10px !important;
   }
 
+  .gallery1-image, .gallery2-image {
+    margin-top: 10px;
+    height: 300px; 
+  }
+}
 
+@media (max-width: 576px) {
+  .row {
+    padding: 10px !important;
+  }
 
-  
+  .gallery1-image, .gallery2-image {
+    margin-top: 10px;
+    height: 200px; 
+  }
+}

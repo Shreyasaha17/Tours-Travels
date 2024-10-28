@@ -1,118 +1,127 @@
-// import Image from 'react-bootstrap/Image';
-// import tourData from '../data/tourData';
-// import { useParams } from 'react-router-dom';
-// import { Col, Row } from 'react-bootstrap';
 
-//   const TourDetails = () => {
-//     const { tourId } = useParams();
-//     const tour = tourData.find(t => t.id === parseInt(tourId));
-
-//     if (!tour) {
-//       return <div>Tour not found</div>;
-//     }
-//   return (
-//    <>
-//   <Row className='lg={12} md={12} sm={12}'>
-//     <Col className='lg={6} md={12} sm={12} custom-col1 gallery-1'> <Image src={tour.image1} alt="Gallery Image 1" className="img-fluid" /></Col>
-//     <Col className='lg={6} md={12} sm={12} custom-col1 gallery-1'>
-//     <Col className='lg={6} md={12} sm={12} gallery-2'><Image src={tour.image1} alt="Gallery Image 1" className="img-fluid" /> </Col>
-//     <Col className='lg={6} md={12} sm={12} gallery-2'><Image src={tour.image1} alt="Gallery Image 1" className="img-fluid" /> </Col>
-//     <Col className='lg={6} md={12} sm={12} gallery-2'><Image src={tour.image1} alt="Gallery Image 1" className="img-fluid" /> </Col>
-//     <Col className='lg={6} md={12} sm={12} gallery-2'><Image src={tour.image1} alt="Gallery Image 1" className="img-fluid" /> </Col>
-
-//     </Col>
-//   </Row>
-//    </>
-//   )
-// }
-
-// export default TourDetails
 import Image from 'react-bootstrap/Image';
-import tourData from '../data/tourData';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Card, Col, Row } from 'react-bootstrap';
-import '../Custom-css/Tourdetails.css';
-import { useSelector } from 'react-redux';
 import { faCalendarDays, faTag } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useEffect, useState } from 'react';
+import '../Custom-css/Tourdetails.css';
 
 const TourDetails = () => {
-  const { tourId } = useParams();
-  const navigate = useNavigate();
-  const isLogin = useSelector((state) => state.auth.isLogin); // Access authentication state
+  const { id } = useParams(); // Get the tour ID from the URL
+  const [tour, setTour] = useState(null); // Store tour data
+  const navigate = useNavigate(); // For navigating between pages
 
-  // Find the tour by ID
-  const tour = tourData.find(t => t.id === parseInt(tourId));
+  useEffect(() => {
+    const fetchTour = async () => {
+      try {
+        const response = await fetch(`http://localhost:7001/user/getTours/${id}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
 
-  if (!tour) {
-    return <div>Tour not found</div>;
-  }
+        if (response.ok) {
+          const data = await response.json();
+          setTour(data.tourDetails);
+        } else {
+          const errorData = await response.json();
+          console.error("Fetch error:", errorData);
+          alert(`Failed to fetch tour: ${errorData.message}`);
+        }
+      } catch (error) {
+        console.error("Fetch error:", error);
+        alert("Failed to fetch tour. Please try again later.");
+      }
+    };
 
-  // Handle reservation and navigation
-  const handleReservation = () => {
-    if (isLogin) {
-      navigate(`/reservationForm/${tour.id}`);
+    fetchTour();
+  }, [id]);
+
+  const handleBookNow = () => {
+    const token = localStorage.getItem('token');
+    if (token && tour) { // Ensure tour is available
+      navigate(`/reservationForm/${tour._id}`, { // Use tour._id directly here
+        state: {
+          tourId: tour._id, // Pass the tour ID
+          tourTitle: tour.title, // Pass the tour title
+          tourPrice: tour.price,
+          tourTime:tour.time // Pass the tour price
+        },
+      });
     } else {
-      navigate('/signup');
+      navigate('/login'); // Redirect to login if not authenticated
     }
   };
 
   return (
     <>
-      <Row className='bg-dark lg-12 md-12 sm-12 p-5 row1'>
-        <p className='tourdetails-heading'>{tour.description2}</p>
-        <p className='tourdetails-duration'>{tour.duration}</p>
-        <Col lg={6} md={12} sm={12} className='gallery-1'>
-          <Image src={tour.image1} alt="Gallery Image 1" className="img-fluid gallery1-image" />
-        </Col>
-        <Col lg={6} md={12} sm={12} className='gallery-2'>
-          <Row>
-            <Col lg={6} md={6} sm={12} className='gallery-2'>
-              <Image src={tour.image2} alt="Gallery Image 2" className="img-fluid gallery2-image" />
+      {tour ? (
+        <>
+          <Row className='bg-dark lg-12 md-12 sm-12 p-5 row1'>
+            <Col lg={12}>
+              <p className='tourdetails-heading'>{tour.desc2}</p>
+              <p className='tourdetails-duration'>{tour.duration}</p>
             </Col>
-            <Col lg={6} md={6} sm={12} className='gallery-2'>
-              <Image src={tour.image3} alt="Gallery Image 3" className="img-fluid gallery2-image" />
+            {/* Display images */}
+            <Col lg={6} md={12} sm={12} className='gallery-1'>
+              <Image src={tour.image1} alt="Gallery Image 1" className="img-fluid gallery1-image" />
+            </Col>
+            <Col lg={6} md={12} sm={12} className='gallery-2'>
+              <Row>
+                <Col lg={6} md={6} sm={12}>
+                  <Image src={tour.image2} alt="Gallery Image 2" className="img-fluid gallery2-image" />
+                </Col>
+                <Col lg={6} md={6} sm={12}>
+                  <Image src={tour.image3} alt="Gallery Image 3" className="img-fluid gallery2-image" />
+                </Col>
+              </Row>
+              <Row className='mt-2'>
+                <Col lg={6} md={6} sm={12}>
+                  <Image src={tour.image4} alt="Gallery Image 4" className="img-fluid gallery2-image" />
+                </Col>
+                <Col lg={6} md={6} sm={12}>
+                  <Image src={tour.image5} alt="Gallery Image 5" className="img-fluid gallery2-image" />
+                </Col>
+              </Row>
             </Col>
           </Row>
-          <Row className='mt-2'>
-            <Col lg={6} md={6} sm={22} className='gallery-2'>
-              <Image src={tour.image4} alt="Gallery Image 4" className="img-fluid gallery2-image" />
+
+          {/* Overview Section */}
+          <Row className='bg-dark p-5'>
+            <span className='overview-heading mb-5'>Quick Tour Overview</span>
+            <Col lg={8} md={12} sm={12}>
+              <ul className='tour-plan px-4 ps-2'>
+                {tour.plan && tour.plan.length > 0 ? (
+                  tour.plan.map((item, index) => (
+                    <li key={index}>
+                      <strong>Day {index + 1}:</strong> {item}
+                    </li>
+                  ))
+                ) : (
+                  <li>No plans available</li>
+                )}
+              </ul>
             </Col>
-            <Col lg={6} md={6} sm={12} className='gallery-2'>
-              <Image src={tour.image5} alt="Gallery Image 5" className="img-fluid gallery2-image" />
+            <Col lg={4} md={12} sm={12} style={{ border: '2px solid white', borderRadius: '15px' }}>
+              <Card className='bg-dark'>
+                <ul className="list-unstyled">
+                  <li className='tour-time pb-3'>
+                    <FontAwesomeIcon icon={faCalendarDays} /> : {tour.time}
+                  </li>
+                  <li className='tour-time'>
+                    <FontAwesomeIcon icon={faTag} rotation={90} /> : Price: {tour.price}
+                  </li>
+                  <Button variant="outline-light" className='Book w-100 m-0 mt-3' onClick={handleBookNow}>Book Now</Button>
+                </ul>
+              </Card>
             </Col>
           </Row>
-        </Col>
-      </Row>
-
-      <Row className='bg-dark p-5'>
-      <span className='overview-heading mb-5'>Quick Tour Overview</span>
-
-        <Col lg={8} md={12} sm={12} className='p-3'>
-
-          {tour.plan.map((day, index) => (
-            <li key={index} className='tour-plan'>
-              <strong>Day {index + 1}</strong>: {day}
-            </li>
-          ))}
-        </Col>
-        <Col lg={4} md={12} sm={12} style={{border:'2px solid white',borderRadius:'15px'}}>
-        <Card className='bg-dark' >
-          <ul className="list-unstyled">
-            <li className='tour-time pb-3'>
-              <FontAwesomeIcon icon={faCalendarDays} /> : {tour.time}
-            </li>
-            <li className='tour-time '>
-              <FontAwesomeIcon icon={faTag} rotation={90} /> : Price: {tour.price}
-            </li>
-          
-              <Button variant="outline-light" className='Book w-100 m-0 mt-3' onClick={handleReservation}>Book Now</Button>
-           
-          </ul>
-          </Card>
-
-        </Col>
-      </Row>
+        </>
+      ) : (
+        <p>No tour details available</p>
+      )}
     </>
   );
 };

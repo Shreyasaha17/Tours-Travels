@@ -4,11 +4,14 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { NavDropdown } from 'react-bootstrap';
 
 const AuthHeader = ({logout}) => {
-  const user = useSelector(state => state.auth.user)
+  // const user = useSelector(state => state.auth.user)
+  const user = JSON.parse(localStorage.getItem('user')); 
+  
+  
   
   return (
    <>
@@ -26,7 +29,7 @@ const AuthHeader = ({logout}) => {
           </Nav>
           <Nav  id='auth-navbar-button'>
           <span className='text-white mt-1'></span> 
-          <NavDropdown title={<span className="text-white">{user?.email}</span>}  id="basic-nav-dropdown"
+          <NavDropdown title={<span className="text-white">{user?.name}</span>}  id="basic-nav-dropdown"
           menuVariant="dark"  className="custom-dropdown">
                <Link to="/profile"> Profile &nbsp; </Link>
               <NavDropdown.Item href="#action/3.2">Bookings</NavDropdown.Item>
